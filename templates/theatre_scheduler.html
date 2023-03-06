@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theatre Home</title>
+    <style>
+      table, th, td {
+      border:1px solid black;
+    }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css')}}">
+</head>
+<body>
+<a href="/">HOME</a>
+{% for theatre_name,movieList in dataDict.items()%}
+<h1>Movies running in {{ theatre_name }}</h1>
+
+<table style="width:100%">
+  <tr>
+    <th>name</th>
+  </tr>
+  <tr>
+
+      {% for movie_name in movieList%}
+       <tr>
+            <div class="Data">
+                <td>{{ movie_name }}</td>
+            </div>
+        </tr>
+      {% endfor %}
+  </tr>
+</table>
+{% endfor %}
+
+
+<hr>
+<form method="post">
+<h2>Add movie</h2>
+Choose a Movie<SELECT name="select1">
+{% for c in movieList%}
+    <OPTION value="{{c.name}}">{{c.name}}</option>
+{% endfor %}
+</SELECT>
+
+Choose a Theatre<SELECT name="select2">
+{% for c in theatreList%}
+    <OPTION value="{{c.name}}">{{c.name}}</option>
+{% endfor %}
+</SELECT>
+<button type="submit">Submit</button>
+</form>
+
+</hr>
+</body>
+</html>

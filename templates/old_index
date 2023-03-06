@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskApp</title>
+    <style>
+        .todo {
+            padding: 20px;
+            margin: 10px;
+            background-color: #eee;
+        }
+        table, th, td {
+      border:1px solid black;
+    }
+    </style>
+</head>
+
+
+    <body>
+
+    <h2>Data in Database</h2>
+
+    <table style="width:100%">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Roll no</th>
+        <th>Branch</th>
+        <th>DOB</th>
+      </tr>
+      <tr>
+
+          {% for data in full_data %}
+           <tr>
+                <div class="Data">
+                    <td>{{ data['_id'] }}</td>
+                    <td>{{ data['name'] }}</td>
+                    <td>({{ data['Roll No'] }})</td>
+                    <td>{{ data['Branch'] }}</td>
+                    <td>{{ data['DOB'] }}</td>
+                </div>
+            </tr>
+          {% endfor %}
+      </tr>
+    </table>
+    <form method="post">
+        <p>
+            <b><label for="content">Enter Id to delete</label></b>
+        </p>
+        <p>
+            <input type="text" name="student_id"
+                placeholder="student_id"></input>
+        </p>
+        <button type="submit">Update</button>
+    </form>
+    <h1>Student Database</h1>
+    <hr>
+    <div class="content">
+    <form method="post">
+        <p>
+            <b><label for="content">Enter the id</label></b>
+        </p>
+        <p>
+            <input type="text" name="_id"
+                placeholder="student_id"></input>
+        </p>
+        <p>
+            <b><label for="content">Enter the name</label></b>
+        </p>
+        <p>
+            <input type="text" name="name"
+                placeholder="student_name"></input>
+        </p>
+        <p>
+            <b><label for="content">Enter roll no</label></b>
+        </p>
+        <p>
+            <input type="text" name="roll_no"
+                placeholder="student_roll_no"></input>
+        </p>
+        <p>
+            <b><label for="content">Enter Branch</label></b>
+        </p>
+        <p>
+            <input type="text" name="branch"
+                placeholder="student_branch"></input>
+        </p>
+        <p>
+            <b><label for="content">Enter DOB</label></b>
+        </p>
+        <p>
+            <input type="text" name="dob"
+                placeholder="student_dob"></input>
+        </p>
+
+
+
+
+        <p>
+            <b><label for="degree">Degree</label></b>
+        </p>
+        <p>
+            <input id="degree-0" name="degree" required type="radio" value="Important">
+            <label for="degree-0">Important</label>
+        </p>
+        <p>
+            <input id="degree-1" name="degree" required type="radio" value="Unimportant">
+            <label for="degree-1">Unimportant</label>
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+        <hr>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theatre Home</title>
+    <style>
+        .todo {
+            padding: 20px;
+            margin: 10px;
+            background-color: #eee;
+        }
+        table, th, td {
+      border:1px solid black;
+    }
+            
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css')}}">
+</head>
+
+
+    <body>
+
+    <h2>List of theatres</h2>
+
+    <table style="width:100%">
+      <tr>
+        <th>name</th>
+        <th>location</th>
+      </tr>
+      <tr>
+
+          {% for data in theatre_data%}
+           <tr>
+                <div class="Data">
+                    <td>{{ data['name'] }}</td>
+                    <td>{{ data['location'] }}</td>
+                </div>
+            </tr>
+          {% endfor %}
+      </tr>
+    </table>
+    
+    <p>
+    <br style=“line-height:10;”> 
+
+    <h3>Theatre updation</h3>
+    <hr>
+    <div class="content">
+    <form method="post">
+        <p>
+            <b><label for="content">Enter Theatre name</label></b>
+        </p>
+        <p>
+            <input type="text" name="name"
+                placeholder="theatre_name" required></input>
+        </p>
+        <p>
+            <b><label for="content">Enter Theatre location</label></b>
+        </p>
+        <p>
+            <input type="text" name="location"
+                placeholder="theatre_location" required></input>
+        </p>
+        <button type="submit">Submit</button>
+            </form>
+        <hr>
+
+    </div>
+</body>
+</html>

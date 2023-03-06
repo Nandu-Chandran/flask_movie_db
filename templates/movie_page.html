@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style_movie_page.css')}}">
+
+<title>{{movieDetail['name']}}</title>
+    <style>
+        .todo {
+            padding: 20px;
+            margin: 10px;
+            background-color: #eee;
+        }
+        table, th, td {
+      border:1px solid black;
+    }
+    </style>
+</head>
+
+
+    <body>
+    <h1>More about "{{movieDetail['name']}}"</h1>
+    <h4>{{movieDetail['year']}}</h4>
+    <h4>{{movieDetail['cast']}}</h4>
+    <h4>{{movieDetail['creator']}}</h4>
+    <h4>{{movieDetail['movie_rating']}}</h4>
+
+    <h1>Audience Review</h1>
+    <hr>
+    <div class="content">
+    <form method="post">
+        <p>
+            <b><label for="content">Write a review</label></b>
+        </p>
+        <p>
+            <input type="text" name="movie_review"
+                placeholder="movie_review"></input>
+        </p>
+        <p>
+            <b><label for="content">Please input username</label></b>
+        </p>
+        <p>
+            <input type="text" name="username"
+                placeholder="username"></input>
+        </p>
+        
+        Choose a Theatre<SELECT name="theatre_selection">
+        {% for c in allTheatrename%}
+            <OPTION value={{c.name}}>{{c.name}}</option>
+        {% endfor %}
+        </SELECT>
+        
+        <p>
+        <label for="theatre_rating">Rate theatre:</label>
+        <select name="theatre_rating" id="theatre_rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        </p>
+
+        <br>
+        <label for="movie_rating">Rate movie:</label>
+        <select name="movie_rating" id="movie_rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        
+            <button type="submit">Submit</button>
+        </form>
+
+    <span class="fa fa-star"></span>
+
+        
+    <hr>
+    <h2> User reviews</h2>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <h3> Avg Ratings:</h2>
+    {% for data in allReview%}
+        <span class="fa fa-star checked"></span>
+
+    {% endfor %}
+    
+    {% for data1 in allReview%}
+           <tr>
+
+        {% for data in data1%}
+                <div class="Data">
+                    <p>
+                    <td>{{ data['username'] }} commented:</td>
+                    <td>{{ data['comment'] }}</td>
+                    <br>
+                    <td>Rated: {{ data['theatre_rating'] }}/5</td>
+                    </p>
+                </div>
+
+        {% endfor %}
+            </tr>
+    {% endfor %}
+
+    </div>
+</body>
+</html>

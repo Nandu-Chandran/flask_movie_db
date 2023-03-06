@@ -1,0 +1,10 @@
+//templates/response.html
+{% for row in employeelist %}  
+<tr>
+    <td>{{row.name}}</td>
+    <td>{{row.position}}</td>
+    <td>{{row.age}}</td>
+    <td>{{ "$%.2f"|format(row.salary) }}</td>
+    <td>{{row.office}}</td>
+</tr>
+{% endfor %} 

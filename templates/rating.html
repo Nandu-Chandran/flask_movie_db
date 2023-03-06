@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css')}}">
+
+    <title>FlaskApp</title>
+    <style>
+        .todo {
+            padding: 20px;
+            margin: 10px;
+            background-color: #eee;
+        }
+        table, th, td {
+      border:1px solid black;
+    }
+    </style>
+</head>
+<form action = '#' method="post">
+   <p>creds:</p>
+   <p><input type="number" id="movie_name" placeholder="id"  name="id" /></p>
+   <p><input type="text" id="theatre_name"  placeholder="nm"  name="nm" /></p>
+   <p><input type="submit" value="submit" /></p>
+</form>
+<script>
+
+$(document).ready(function(){
+var clicked;
+$("#submit").keydown(function(e){
+clicked = $(this).attr("movie_name");
+var clicked = $("#movie_name").val();
+    if (e.key === "Enter") {
+    $.ajax({
+      type : 'post',
+      url : "/rating",
+      data : {'data':clicked}
+    });
+
+}
+
+ });
+});
+
+</script>
+</body>
+</html>
+
+

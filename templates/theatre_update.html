@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css')}}">
+
+    <title>FlaskApp</title>
+    <style>
+        .todo {
+            padding: 20px;
+            margin: 10px;
+            background-color: #eee;
+        }
+        table, th, td {
+      border:1px solid black;
+    
+        }
+    </style>
+
+    </head>
+    <body>
+    <script>
+    function myFunction() {
+      alert(" Movie added");
+    }
+    </script>
+
+    <h1>Update Movie Database</h1>
+    <hr>
+    <div class="content ">
+    
+
+    <form class="update_movie "method="post" enctype="multipart/form-data">
+       <!-- <p>
+            <b><label for="content">Enter the id</label></b>
+        </p>
+        <p>
+            <input type="text" name="id"
+                placeholder="movie_id"></input>
+        </p>
+        <p>
+            <b><label for="content">Enter the name</label></b>
+        </p>
+        <p>
+            <input type="text" name="name"
+                placeholder="movie_name"></input>
+        </p> -->
+        
+        <div class="input-container ic1">
+        <input id="movie_name" name="name" class="input" type="text" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="movie_name" class="placeholder">Movie name</label>
+        </div>
+
+        <div class="input-container ic1">
+        <input id="movie_year" name="year" class="input" type="text" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="movie_year" class="placeholder">Movie year</label>
+        </div>
+
+        <div class="input-container ic1">
+        <input id="movie_cast" name="cast" class="input" type="text" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="movie_cast" class="placeholder">Movie cast</label>
+        </div>
+
+        <div class="input-container ic1">
+        <input id="movie_creator" name="creator" class="input" type="text" placeholder=" " required/>
+        <div class="cut"></div>
+        <label for="movie_creator" class="placeholder">Movie creator</label>
+        </div>
+
+
+
+        <!--<p>
+            <b><label for="content">Enter year</label></b>
+        </p>
+        <p>
+            <input type="text" name="year"
+                placeholder="movie_name"></input>
+        </p>
+        <p>
+            <b><label for="content">Enter cast</label></b>
+        </p>
+        <p>
+            <input type="text" name="cast"
+                placeholder="movie_cast"></input>
+        </p>
+        <p>
+            <b><label for="content">Enter creator</label></b>
+        </p>
+        <p>
+            <input type="text" name="creator"
+                placeholder="student_dob"></input>
+        </p>-->
+        
+        <div class="cut"></div>
+        <p>
+         <b><label for="content">Select movie cover</label></b>
+         <input type = "file" name = "file" /> </p>
+        <button  onclick="myFunction()" class="submit" name="submit" type="submit" >Submit</button>
+
+        </div>
+    </form>
+        <hr>
+
+    </div>
+</body>
+</html>
